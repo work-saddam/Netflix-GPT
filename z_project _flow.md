@@ -3,7 +3,8 @@
 - vite + react
 - Configured TailwindCSS
 - Header
-- Login form
+- Login Form
+- Sign up Form
 
 # Features
 - Login/Signup 
