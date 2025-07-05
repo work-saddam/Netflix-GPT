@@ -10,6 +10,7 @@
 - useRef hook
 - Firebase setup
 - Deploying our app to production
+- Create SignUp User Account 
 
 # Features
 - Login/Signup 
