@@ -3,8 +3,11 @@
 - vite + react
 - Configured TailwindCSS
 - Header
+- Routing of App
 - Login Form
 - Sign up Form
+- Form validation
+- useRef hook
 
 # Features
 - Login/Signup 
