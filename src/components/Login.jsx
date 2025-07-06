@@ -9,6 +9,7 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BG_IMAGE, USER_AVATAR } from "../utils/constant";
 
 export const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -17,7 +18,7 @@ export const Login = () => {
 
   const email = useRef(null);
   const password = useRef(null);
-  const name = useRef(null);
+  const [nameInput, setNameInput] = useState("");
 
   const handleButtonClick = () => {
     //validate the form data
@@ -37,9 +38,8 @@ export const Login = () => {
           const user = userCredential.user;
           // console.log(user);
           updateProfile(user, {
-            displayName: name.current.value,
-            photoURL:
-              "https://cdn-icons-png.flaticon.com/512/16683/16683419.png",
+            displayName: nameInput,
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -88,10 +88,7 @@ export const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/05e91faa-6f6d-4325-934e-5418dcc2567b/web/IN-en-20250630-TRIFECTA-perspective_159086b1-425f-435b-bcd5-1ed8039cdef9_large.jpg"
-          alt="background-image"
-        />
+        <img src={BG_IMAGE} alt="background-image" />
       </div>
 
       <form
@@ -104,7 +101,8 @@ export const Login = () => {
 
         {!isSignInForm && (
           <input
-            ref={name}
+            value={nameInput}
+            onChange={(e) => setNameInput(e.target.value)}
             className="p-2 my-4 bg-gray-800 w-full rounded-xs"
             type="text"
             placeholder="Full Name"
