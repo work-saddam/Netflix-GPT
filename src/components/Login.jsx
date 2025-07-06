@@ -4,22 +4,25 @@ import { checkValidData } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 export const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const email = useRef(null);
   const password = useRef(null);
+  const name = useRef(null);
 
   const handleButtonClick = () => {
     //validate the form data
-
-    // console.log(email.current.value)
-    // console.log(password.current.value)
-
     const message = checkValidData(email.current.value, password.current.value);
     setErrorMessage(message);
     if (message) return;
@@ -33,30 +36,50 @@ export const Login = () => {
         password.current.value
       )
         .then((userCredential) => {
-          // Signed up
           const user = userCredential.user;
-          console.log(user);
+          // console.log(user);
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL:
+              "https://cdn-icons-png.flaticon.com/512/16683/16683419.png",
+          })
+            .then(() => {
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+              navigate("/browse");
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorCode + "-" + errorMessage);
+          setErrorMessage(errorCode + "-" + errorMessage);
         });
     } else {
+      // Sign In Logic
       signInWithEmailAndPassword(
         auth,
         email.current.value,
         password.current.value
       )
         .then((userCredential) => {
-          // Signed in
           const user = userCredential.user;
-          console.log(user);
+          // console.log(user);
+          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorCode + "-" + errorMessage);
+          setErrorMessage(errorCode + "-" + errorMessage);
         });
     }
   };
@@ -85,6 +108,7 @@ export const Login = () => {
 
         {!isSignInForm && (
           <input
+            ref={name}
             className="p-2 my-4 bg-gray-800 w-full rounded-xs"
             type="text"
             placeholder="Full Name"
