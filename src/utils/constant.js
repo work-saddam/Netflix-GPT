@@ -3,3 +3,5 @@ export const LOGO = "https://help.nflxext.com/helpcenter/OneTrust/oneTrust_produ
 export const BG_IMAGE = "https://assets.nflxext.com/ffe/siteui/vlv3/05e91faa-6f6d-4325-934e-5418dcc2567b/web/IN-en-20250630-TRIFECTA-perspective_159086b1-425f-435b-bcd5-1ed8039cdef9_large.jpg"
 
 export const USER_AVATAR = "https://cdn-icons-png.flaticon.com/512/16683/16683419.png"
+
+export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500"
