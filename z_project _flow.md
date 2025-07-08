@@ -28,6 +28,12 @@
 - update store with trailer data
 - Embedd youtube video and make it autoplay mute and in loop
 - tailwind to make Main container look awesome
+- Build Secondary componenet
+- Build Movie list
+- Build Movie Cart
+- TMDB image cdn url
+- make browse page amazing with tailwindcss
+- usePopularMovies, useUpcomingMovies, useTopRatedMovies custom hook
 
 
 
