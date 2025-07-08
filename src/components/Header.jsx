@@ -54,7 +54,7 @@ export const Header = () => {
             alt="userIcon"
             src={user?.photoURL}
           />
-          <button onClick={handleSignOut} className="cursor-pointer">
+          <button onClick={handleSignOut} className="cursor-pointer text-white">
             (Sign Out)
           </button>
         </div>
