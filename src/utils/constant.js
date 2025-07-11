@@ -15,3 +15,12 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "tamil", name: "Tamil" },
   { identifier: "germen", name: "Germen" },
 ];
+
+//OpenAi Key
+export const OPENAI_KEY = "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"
+
+//https://cloud.sambanova.ai/apis
+export const SAMBANOVA_API_KEY = '6b4333e2-d815-4e4e-b6d1-ceff9e8dec3d';
+export const SAMBANOVA_BASE_URL = 'https://api.sambanova.ai/v1';
+
+

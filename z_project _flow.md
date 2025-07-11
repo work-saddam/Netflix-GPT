@@ -37,6 +37,10 @@
 - GPT Search page
 - GPT Search Bar
 - (BONUS) Multi-language support
+- Connet to gpt using api and get the result
+- Call the tmdb api with gpt result
+- Make Gpt Suggestion Page to show results 
+- Re-use MovieList component to show poster in gpt page
 
 
 
