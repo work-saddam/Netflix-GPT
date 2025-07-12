@@ -4,13 +4,15 @@ import { GptSearchBar } from "./GptSearchBar";
 
 const GptSearchPage = () => {
   return (
-    <div>
+    <>
       <div className="fixed -z-10">
-        <img src={BG_IMAGE} alt="background-image" />
+        <img className="h-screen scale-[1.1] xl:h-auto object-cover " src={BG_IMAGE} alt="background-image" />
       </div>
-      <GptSearchBar />
-      <GptMovieSuggestions />
-    </div>
+      <div className="pt-[30%] sm:pt-0">
+        <GptSearchBar />
+        <GptMovieSuggestions />
+      </div>
+    </>
   );
 };
 

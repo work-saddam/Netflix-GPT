@@ -54,18 +54,18 @@ export const Header = () => {
   };
 
   return (
-    <div className="absolute w-screen bg-gradient-to-b from-black px-8 py-2 z-50 flex justify-between">
-      <img className="w-44" src={LOGO} alt="netflix-logo"></img>
+    <div className="absolute w-screen bg-gradient-to-b from-black sm:px-8 py-1 sm:py-2 z-50 flex justify-between">
+      <img className="w-28 sm:w-44" src={LOGO} alt="netflix-logo"></img>
 
       {user && (
-        <div className="flex items-center">
+        <div className="flex justify-center items-center">
           {showGptSearch && (
             <select
-              className="bg-gray-800 text-white m-4 p-1 rounded-lg"
+              className="bg-gray-800 text-white mx-2 sm:m-4 p-1 rounded-lg"
               onChange={handleLanguageChange}
             >
               {SUPPORTED_LANGUAGES.map((lang) => (
-                <option key={lang.identifier} value={lang.identifier}>
+                <option className="text-xs md:text-lg" key={lang.identifier} value={lang.identifier}>
                   {lang.name}
                 </option>
               ))}
@@ -73,18 +73,18 @@ export const Header = () => {
           )}
 
           <button
-            className="bg-green-700 py-1 px-4 text-white rounded-lg mr-4 cursor-pointer"
+            className="bg-green-700 py-0.5 px-4 text-white rounded-lg mr-2 cursor-pointer"
             onClick={handleGptSearchClick}
           >
-            {showGptSearch ? "Home Page " : "GPT Search"}
+            {showGptSearch ? "Home" : "GPT"}
           </button>
           <img
-            className="w-10 h-12  pt-2"
+            className="w-0 sm:w-10 h-12 sm:mx-4 pt-2"
             alt="userIcon"
             src={user?.photoURL}
           />
           <button onClick={handleSignOut} className="cursor-pointer text-white">
-            (Sign Out)
+            <img className="pt-1 pr-2 w-11" src="https://cdn-icons-png.flaticon.com/128/4034/4034229.png" alt="logout logo" />
           </button>
         </div>
       )}

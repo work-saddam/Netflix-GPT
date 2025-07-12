@@ -88,12 +88,12 @@ export const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img src={BG_IMAGE} alt="background-image" />
+        <img className="h-screen scale-[1.1] xl:h-auto object-cover" src={BG_IMAGE} alt="background-image" />
       </div>
 
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-3/12 absolute bg-black/80  text-white my-24 mx-auto right-0 left-0 p-8 rounded-lg "
+        className="w-10/12 sm:w-1/2  lg:w-3/12 absolute bg-black/80  text-white my-24 mx-auto right-0 left-0 p-8 rounded-lg "
       >
         <h1 className=" text-2xl font-semibold py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
