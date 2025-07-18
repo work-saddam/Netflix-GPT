@@ -44,11 +44,20 @@ To overcome this, a dedicated backend proxy server has been developed and deploy
 - ⚡ **React + Vite**  
   Fast and modern frontend setup for a blazing-fast user experience.
 
-- 🧠 **OpenAI Integration**  
+- 🤖 **OpenAI Integration**  
   Converts natural language input into meaningful search queries.
+
+- 🌍 **Multi-language Support**
+  Netflix-GPT accessible to a global audience, it is designed with multi-language support.
 
 - 📱 **Responsive Design**  
   Mobile-first and fully responsive for all devices.
+
+- 🧠 **Smart Caching with Redux**
+  To improve performance and reduce redundant API calls, the app uses Redux to cache data fetched from the TMDB API.
+  
+  Once data is fetched, it's stored in the Redux store and reused across components and user navigation (e.g., going back and forth between pages).
+  This strategy significantly minimizes API requests, improves load times, and enhances the overall user experience — especially when multiple users are active.
 
 
 ## 💻  Technologies Used
