@@ -73,7 +73,7 @@ export const Header = () => {
           )}
 
           <button
-            className="bg-green-700 py-0.5 px-4 text-white rounded-lg mr-2 cursor-pointer"
+            className="bg-green-700 hover:bg-green-800 py-0.5 px-4 text-white rounded-lg mr-2 cursor-pointer"
             onClick={handleGptSearchClick}
           >
             {showGptSearch ? "Home" : "GPT"}
