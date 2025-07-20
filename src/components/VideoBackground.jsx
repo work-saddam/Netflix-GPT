@@ -1,11 +1,15 @@
 import { useSelector } from "react-redux";
 import useMovieTrailer from "../hooks/useMovieTrailer";
+import Shimmer from "./Shimmer";
 
 export const VideoBackground = ({ movieId }) => {
-  const trailerVideo = useSelector((store) => store.movies?.trailerVideo);
+  // const trailerVideo = useSelector((store) => store.movies?.trailerVideo);
   // console.log("🎬 From store.movies.trailerVideo:", trailerVideo);
 
-  useMovieTrailer(movieId);
+  const trailerVideo = useMovieTrailer(movieId);
+
+  if (trailerVideo === null)
+    return <div className="w-screen h-screen bg-black relative"></div>;
 
   return (
     <div className="w-screen">
