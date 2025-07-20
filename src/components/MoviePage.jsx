@@ -3,16 +3,34 @@ import { VideoBackground } from "./VideoBackground";
 import useMovieDetail from "../hooks/useMovieDetail";
 import MovieList from "./MovieList";
 import useSimilarMovies from "../hooks/useSimilarMovies";
+import { useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 export const MoviePage = () => {
   const { movieID } = useParams();
   const movieDetail = useMovieDetail(movieID);
   const similarMovies = useSimilarMovies(movieID);
 
-  if (movieDetail === null) return null;
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [movieID]);
 
-  const { original_title, overview, popularity, homepage, genres } =
-    movieDetail;
+  if (movieDetail === null) return <Shimmer/>;
+  if (similarMovies === null) return null;
+
+  const {
+    original_title,
+    overview,
+    tagline,
+    popularity,
+    homepage,
+    genres,
+    vote_average,
+    runtime,
+    origin_country,
+    vote_count,
+    release_date,
+  } = movieDetail;
 
   return (
     <div className="w-screen bg-black text-white">
@@ -45,7 +63,22 @@ export const MoviePage = () => {
         <p className="text-gray-300 leading-relaxed">{overview}</p>
 
         <div className="text-sm text-gray-400">
+          <p className="text-xl italic text-gray-400">"{tagline}"</p>
           <p>Popularity: {Math.round(popularity)}</p>
+          <p>
+            <span className="font-semibold">Release Date:</span> {release_date}
+          </p>
+          <p>
+            <span className="font-semibold">Duration:</span> {runtime} min
+          </p>
+          <p>
+            <span className="font-semibold">Country:</span>{" "}
+            {origin_country.join(", ")}
+          </p>
+          <p>
+            <span className="font-semibold">Rating:</span>{" "}
+            {vote_average.toFixed(1)} / 10 ({vote_count} votes)
+          </p>
           {homepage && (
             <a
               href={homepage}
