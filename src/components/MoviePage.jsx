@@ -16,7 +16,7 @@ export const MoviePage = () => {
   }, [movieID]);
 
   if (movieDetail === null) return <Shimmer/>;
-  if (similarMovies === null) return null;
+//   if (similarMovies === null) return null;
 
   const {
     original_title,
@@ -34,6 +34,7 @@ export const MoviePage = () => {
 
   return (
     <div className="w-screen bg-black text-white">
+        
       {/* Video Section */}
       <div className="relative w-full ">
         <VideoBackground movieId={movieID} />
