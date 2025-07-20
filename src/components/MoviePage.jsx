@@ -1,10 +1,13 @@
 import { useParams } from "react-router-dom";
 import { VideoBackground } from "./VideoBackground";
 import useMovieDetail from "../hooks/useMovieDetail";
+import MovieList from "./MovieList";
+import useSimilarMovies from "../hooks/useSimilarMovies";
 
 export const MoviePage = () => {
   const { movieID } = useParams();
   const movieDetail = useMovieDetail(movieID);
+  const similarMovies = useSimilarMovies(movieID);
 
   if (movieDetail === null) return null;
 
@@ -57,7 +60,9 @@ export const MoviePage = () => {
       </div>
 
       {/* similar movie list  */}
-      
+      <div>
+        <MovieList title={"Similar Movies"} movies={similarMovies} />
+      </div>
     </div>
   );
 };

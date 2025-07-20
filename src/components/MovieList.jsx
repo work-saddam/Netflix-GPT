@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Moviecard from "./Moviecard";
 
 const MovieList = ({ title, movies }) => {
-//   console.log(movies);
+  //   console.log(movies);
   if (!movies) return;
 
   return (
@@ -10,9 +10,11 @@ const MovieList = ({ title, movies }) => {
       <h1 className="text-xl sm:text-2xl py-4 text-white">{title}</h1>
 
       <div className="flex overflow-x-scroll scrollbar-hidden">
-        <div className="flex">
+        <div className="flex space-x-4">
           {movies.map((movie) => (
-            <Link to={"/movie/" + movie.id}> <Moviecard key={movie.id} posterPath={movie.poster_path} /> </Link>
+            <Link key={movie.id} to={"/movie/" + movie.id}>
+              <Moviecard posterPath={movie.poster_path} />
+            </Link>
           ))}
         </div>
       </div>
