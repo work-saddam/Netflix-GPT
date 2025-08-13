@@ -65,7 +65,11 @@ export const Header = () => {
               onChange={handleLanguageChange}
             >
               {SUPPORTED_LANGUAGES.map((lang) => (
-                <option className="text-xs md:text-lg" key={lang.identifier} value={lang.identifier}>
+                <option
+                  className="text-xs md:text-lg"
+                  key={lang.identifier}
+                  value={lang.identifier}
+                >
                   {lang.name}
                 </option>
               ))}
@@ -73,18 +77,27 @@ export const Header = () => {
           )}
 
           <button
-            className="bg-green-700 hover:bg-green-800 py-0.5 px-4 text-white rounded-lg mr-2 cursor-pointer"
+            className={`${
+              showGptSearch
+                ? "bg-gray-700 hover:bg-gray-800 transform hover:scale-105 transition-all duration-200"
+                : "bg-gradient-to-r from-yellow-400 to-amber-500 animate-bounce"
+            } text-white font-semibold px-4 py-1 rounded-full cursor-pointer`}
             onClick={handleGptSearchClick}
           >
             {showGptSearch ? "Home" : "GPT"}
           </button>
+
           <img
             className="w-0 sm:w-10 h-12 sm:mx-4 pt-2"
             alt="userIcon"
             src={user?.photoURL}
           />
           <button onClick={handleSignOut} className="cursor-pointer text-white">
-            <img className="pt-1 pr-2 w-11" src="https://cdn-icons-png.flaticon.com/128/4034/4034229.png" alt="logout logo" />
+            <img
+              className="pt-1 pr-2 w-11"
+              src="https://cdn-icons-png.flaticon.com/128/4034/4034229.png"
+              alt="logout logo"
+            />
           </button>
         </div>
       )}
