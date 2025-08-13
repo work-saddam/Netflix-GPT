@@ -8,9 +8,8 @@ export const VideoBackground = ({ movieId }) => {
 
   const trailerVideo = useMovieTrailer(movieId);
 
-  if (trailerVideo === null)
-    return <Shimmer/>
-    // return <div className="w-screen h-screen bg-black relative"></div>;
+  if (trailerVideo === null) return <Shimmer />;
+  // return <div className="w-screen h-screen bg-black relative"></div>;
 
   return (
     <div className="w-screen">

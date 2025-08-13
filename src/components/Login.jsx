@@ -85,10 +85,16 @@ export const Login = () => {
   };
 
   return (
-    <div>
+    <div className="relative min-h-screen overflow-x-hidden">
       <Header />
-      <div className="absolute">
-        <img className="h-screen scale-[1.1] xl:h-auto object-cover" src={BG_IMAGE} alt="background-image" />
+
+      {/* Background Image */}
+      <div className="absolute inset-0 -z-10">
+        <img
+          className="w-full h-full object-cover"
+          src={BG_IMAGE}
+          alt="background-image"
+        />
       </div>
 
       <form
