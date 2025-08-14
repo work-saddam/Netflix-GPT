@@ -81,7 +81,7 @@ export const Header = () => {
               showGptSearch
                 ? "bg-gray-700 hover:bg-gray-800 transform hover:scale-105 transition-all duration-200"
                 : "bg-gradient-to-r from-yellow-400 to-amber-500 animate-bounce"
-            } text-white font-semibold px-4 py-1 rounded-full cursor-pointer`}
+            } text-white font-semibold px-4 py-1 mt-2 sm:mt-0 mr-3 sm:mr-0 rounded-full cursor-pointer`}
             onClick={handleGptSearchClick}
           >
             {showGptSearch ? "Home" : "GPT"}
@@ -94,7 +94,7 @@ export const Header = () => {
           />
           <button onClick={handleSignOut} className="cursor-pointer text-white">
             <img
-              className="pt-1 pr-2 w-11"
+              className="pt-1 pr-2 w-11 mr-2 sm:mr-0"
               src="https://cdn-icons-png.flaticon.com/128/4034/4034229.png"
               alt="logout logo"
             />
